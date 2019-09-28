@@ -1,8 +1,10 @@
 import os
 
 import torch
-#from transformers.modeling_bert import BertModel as AutoModel
-from pytorch_pretrained_bert.modeling import BertModel as AutoModel
+
+from pytorch_pretrained_bert.modeling import BertModel
+#from transformers.modeling_bert import BertModel
+
 from torch import nn
 
 
@@ -14,7 +16,7 @@ class BertModule(nn.Module):
         if not os.path.exists(cache_dir):
             os.makedirs(cache_dir)
 
-        self.bert_model = AutoModel.from_pretrained(
+        self.bert_model = BertModel.from_pretrained(
             bert_model_name, cache_dir=cache_dir
         )
         use_cuda = torch.cuda.is_available()
