@@ -1,4 +1,4 @@
-from pytorch_transformers.tokenization_auto import AutoTokenizer
+from transformers.tokenization_auto import AutoTokenizer
 from csv import reader as csv_reader
 from os.path import join as join_path
 
